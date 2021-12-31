@@ -20,12 +20,23 @@ const issue_docs = {
   },
 }
 
+const pull_docs = {
+  save_pull: {
+    desc: 'Update GitHub Pull data from an entity.',
+  },
+
+  load_pull: {
+    desc: 'Load GitHub Pull data into an entity.',
+  },
+}
+
 const docs = {
   get_info: {
     desc: 'Get information about the provider.',
   },
   ...repo_docs,
   ...issue_docs,
+  ...pull_docs,
 }
 
 export default docs
