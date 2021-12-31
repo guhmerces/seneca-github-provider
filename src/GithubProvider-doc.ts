@@ -20,12 +20,23 @@ const issue_docs = {
   },
 }
 
+const project_docs = {
+  save_project: {
+    desc: 'Update GitHub Project data from an entity.',
+  },
+
+  load_project: {
+    desc: 'Load GitHub Project data into an entity.',
+  },
+}
+
 const docs = {
   get_info: {
     desc: 'Get information about the provider.',
   },
   ...repo_docs,
   ...issue_docs,
+  ...project_docs,
 }
 
 export default docs
