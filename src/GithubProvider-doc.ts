@@ -29,6 +29,15 @@ const team_docs = {
   },
 }
 
+const org_docs = {
+  load_org: {
+    desc: 'Load GitHub Organization data into an entity.',
+  },
+  save_org: {
+    desc: 'Update GitHub Organization data from an entity.',
+  },
+}
+
 const docs = {
   get_info: {
     desc: 'Get information about the provider.',
@@ -36,6 +45,7 @@ const docs = {
   ...repo_docs,
   ...issue_docs,
   ...team_docs,
+  ...org_docs,
 }
 
 export default docs
