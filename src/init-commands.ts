@@ -1,5 +1,6 @@
 import { InitialCommandsArgs } from './types'
 import issue from './entities/issue'
+import code_scanning from './entities/code-scanning'
 
 /**
  * Passes initial arguments to the closure of each group of commands
@@ -9,6 +10,7 @@ import issue from './entities/issue'
 function init_commands(initial_args: InitialCommandsArgs) {
   return {
     issue: issue(initial_args),
+    code_scanning: code_scanning(initial_args),
   }
 }
 

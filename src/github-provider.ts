@@ -44,6 +44,9 @@ function GithubProvider(this: any, _options: any) {
     .message('role:entity,cmd:load,zone:provider,base:github,name:issue', commands.issue.load_issue)
     .message('role:entity,cmd:save,zone:provider,base:github,name:issue', commands.issue.save_issue)
 
+    .message('role:entity,cmd:load,zone:provider,base:github,name:code_scanning', commands.code_scanning.load_code_scanning_alert)
+    .message('role:entity,cmd:save,zone:provider,base:github,name:code_scanning', commands.code_scanning.save_code_scanning_alert)
+
   async function get_info(this: any, _msg: any) {
     return {
       ok: true,
