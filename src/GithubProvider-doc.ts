@@ -20,12 +20,22 @@ const issue_docs = {
   },
 }
 
+const user_docs = {
+  load_user: {
+    desc: 'Load GitHub User data into an entity.',
+  },
+  save_user: {
+    desc: 'Update GitHub User data from an entity.',
+  },
+}
+
 const docs = {
   get_info: {
     desc: 'Get information about the provider.',
   },
   ...repo_docs,
   ...issue_docs,
+  ...user_docs,
 }
 
 export default docs
