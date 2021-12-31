@@ -47,6 +47,9 @@ function GithubProvider(this: any, _options: any) {
     .message('role:entity,cmd:load,zone:provider,base:github,name:team', commands.team.load_team)
     .message('role:entity,cmd:save,zone:provider,base:github,name:team', commands.team.save_team)
 
+    .message('role:entity,cmd:load,zone:provider,base:github,name:org', commands.org.load_org)
+    .message('role:entity,cmd:save,zone:provider,base:github,name:org', commands.org.save_org)
+
   async function get_info(this: any, _msg: any) {
     return {
       ok: true,
