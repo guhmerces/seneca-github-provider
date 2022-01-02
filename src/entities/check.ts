@@ -2,7 +2,7 @@ import { split_repo_id } from '../helpers'
 import { InitialCommandsArgs, Msg } from '../types'
 
 function check(args: InitialCommandsArgs) {
-  async function load_check_run(this: any, msg: any) {    
+  async function load_check_run(this: any, msg: any) {
     const { repo_id, check_run_id } = msg.q
 
     const { owner, repo } = split_repo_id(repo_id)
@@ -57,9 +57,32 @@ function check(args: InitialCommandsArgs) {
     return this.make$(args.ZONE_BASE + 'check_run').data$(check_run)
   }
 
+  async function load_check_suite(this: any, msg: any) {
+    const { repo_id, check_suite_id } = msg.q
+
+    const { owner, repo } = split_repo_id(repo_id)
+
+    const res = await args.octokit.rest.checks.getSuite({
+      owner,
+      repo,
+      check_suite_id,
+    })
+
+    const github_ent: any = res.data
+
+    const check_suite = {
+      ...github_ent,
+      repo_id,
+      check_suite_id
+    }
+
+    return this.make$(args.ZONE_BASE + 'check_suite').data$(check_suite)
+  }
+
   return {
     load_check_run,
     save_check_run,
+    load_check_suite,
   }
 }
 
