@@ -28,6 +28,10 @@ const check_docs = {
   load_check_run: {
     desc: 'Load GitHub Check Run data into an entity.',
   },
+
+  load_check_suite: {
+    desc: 'Load GitHub Check Suite data into an entity.'
+  }
 }
 
 const docs = {
