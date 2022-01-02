@@ -66,4 +66,26 @@ describe('github-check', () => {
     expect(entity.repo_id).toBe(entity.repo_id)
   })
 
+  test('load-check-suite', async () => {
+    const seneca = Seneca({ legacy: false })
+      .test()
+      .use('promisify')
+      .use('entity')
+      .use('provider', provider_options)
+      .use(GithubProvider)
+      
+    const attrs = {
+      repo_id,
+      check_suite_id: 1
+    }
+
+    let entity = await seneca.entity('provider/github/check_suite').load$(attrs)
+
+    expect(entity.entity$).toBe('provider/github/check_suite')
+    expect(entity.id).toBeDefined()
+
+    // expectations for created attributes
+    expect(entity.check_run_id).toBe(attrs.check_suite_id)
+    expect(entity.repo_id).toBe(entity.repo_id)
+  })
 })
