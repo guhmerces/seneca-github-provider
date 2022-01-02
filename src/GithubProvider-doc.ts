@@ -20,12 +20,23 @@ const issue_docs = {
   },
 }
 
+const check_docs = {
+  save_check_run: {
+    desc: 'Update GitHub Check Run data from an entity.',
+  },
+
+  load_check_run: {
+    desc: 'Load GitHub Check Run data into an entity.',
+  },
+}
+
 const docs = {
   get_info: {
     desc: 'Get information about the provider.',
   },
   ...repo_docs,
   ...issue_docs,
+  ...check_docs
 }
 
 export default docs
