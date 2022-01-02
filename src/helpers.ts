@@ -6,8 +6,12 @@ function set_domain_id(ent: { [key: string]: any }, newID: any) {
   }
 }
 
-function split_repo_id(repo: string) {
-  return repo.split("/")
+function split_repo_id(repo_id: string) {
+  const [ownername, reponame] = repo_id.split('/')
+  return {
+    owner: ownername,
+    repo: reponame
+  }
 }
 
 export {
