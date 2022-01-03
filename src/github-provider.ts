@@ -36,10 +36,10 @@ function GithubProvider(this: any, _options: any) {
   seneca
     .message('sys:provider,provider:github,get:info', get_info)
     .message('role:entity,cmd:load,zone:provider,base:github,name:repo',
-      load_repo)
+      commands.repo.load_repo)
 
     .message('role:entity,cmd:save,zone:provider,base:github,name:repo',
-      save_repo)
+      commands.repo.save_repo)
 
     .message('role:entity,cmd:load,zone:provider,base:github,name:issue', commands.issue.load_issue)
     .message('role:entity,cmd:save,zone:provider,base:github,name:issue', commands.issue.save_issue)
