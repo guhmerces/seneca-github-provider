@@ -16,16 +16,16 @@ describe('github-code-of-conduct', () => {
       .use('entity')
       .use('provider', provider_options)
       .use(GithubProvider)
-      
-    const attrs = {
-      key: code_of_conduct_key
-    }
 
-    let entity = await seneca.entity('provider/github/code_of_conduct').load$(attrs)
+    let entity = await seneca.entity('provider/github/code_of_conduct').load$(code_of_conduct_key)
 
     expect(entity.entity$).toBe('provider/github/code_of_conduct')
+
     expect(entity.key).toBeDefined()
-    expect(entity.key).toBe(attrs.key)
-    expect(entity.name).toBeDefined()
+    expect(entity.key).toBe(code_of_conduct_key)
+
+    // created attributes expectations
+    expect(entity.id).toBeDefined()
+    expect(entity.id).toBe(code_of_conduct_key)
   })
 })
