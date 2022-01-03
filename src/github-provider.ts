@@ -44,6 +44,10 @@ function GithubProvider(this: any, _options: any) {
     .message('role:entity,cmd:load,zone:provider,base:github,name:issue', commands.issue.load_issue)
     .message('role:entity,cmd:save,zone:provider,base:github,name:issue', commands.issue.save_issue)
 
+    .message('role:entity,cmd:load,zone:provider,base:github,name:commit', commands.commit.load_commit)
+    .message('role:entity,cmd:load,zone:provider,base:github,name:commit_comment', commands.commit.load_commit_comment)
+    .message('role:entity,cmd:save,zone:provider,base:github,name:commit_comment', commands.commit.save_commit_comment)
+
   async function get_info(this: any, _msg: any) {
     return {
       ok: true,
