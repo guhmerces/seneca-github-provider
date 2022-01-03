@@ -20,7 +20,7 @@ function release(args: InitialCommandsArgs) {
       repo_id,
       release_id,
     }
-console.log(release)
+
     return this.make$(args.ZONE_BASE + 'release').data$(release)
   }
 
