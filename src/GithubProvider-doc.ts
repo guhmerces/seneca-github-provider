@@ -20,12 +20,19 @@ const issue_docs = {
   },
 }
 
+const license_docs = {
+  load_issue: {
+    desc: 'Load GitHub License data into an entity.',
+  },
+}
+
 const docs = {
   get_info: {
     desc: 'Get information about the provider.',
   },
   ...repo_docs,
   ...issue_docs,
+  ...license_docs,
 }
 
 export default docs
