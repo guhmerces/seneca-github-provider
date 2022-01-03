@@ -20,12 +20,23 @@ const issue_docs = {
   },
 }
 
+const branch_docs = {
+  save_branch: {
+    desc: 'Update GitHub Branch data from an entity.',
+  },
+
+  load_branch: {
+    desc: 'Load GitHub Branch data into an entity.',
+  },
+}
+
 const docs = {
   get_info: {
     desc: 'Get information about the provider.',
   },
   ...repo_docs,
   ...issue_docs,
+  ...branch_docs,
 }
 
 export default docs
