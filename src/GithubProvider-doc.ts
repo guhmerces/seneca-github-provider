@@ -20,12 +20,19 @@ const issue_docs = {
   },
 }
 
+const code_of_conduct_docs = {
+  load_code_of_conduct: {
+    desc: 'Load GitHub Code of Conduct data into an entity.',
+  },
+}
+
 const docs = {
   get_info: {
     desc: 'Get information about the provider.',
   },
   ...repo_docs,
   ...issue_docs,
+  ...code_of_conduct_docs,
 }
 
 export default docs
