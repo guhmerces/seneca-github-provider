@@ -20,12 +20,23 @@ const issue_docs = {
   },
 }
 
+const release_docs = {
+  save_release: {
+    desc: 'Update GitHub Release data from an entity.',
+  },
+
+  load_release: {
+    desc: 'Load GitHub Release data into an entity.',
+  },
+}
+
 const docs = {
   get_info: {
     desc: 'Get information about the provider.',
   },
   ...repo_docs,
   ...issue_docs,
+  ...release_docs,
 }
 
 export default docs
