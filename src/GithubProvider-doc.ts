@@ -20,12 +20,23 @@ const issue_docs = {
   },
 }
 
+const gist_docs = {
+  save_gist: {
+    desc: 'Update GitHub Gist data from an entity.',
+  },
+
+  load_gist: {
+    desc: 'Load GitHub Gist data into an entity.',
+  },
+}
+
 const docs = {
   get_info: {
     desc: 'Get information about the provider.',
   },
   ...repo_docs,
   ...issue_docs,
+  ...gist_docs,
 }
 
 export default docs
