@@ -4,6 +4,7 @@
 // TODO: namespace provider zone; needs seneca-entity feature
 
 import { Octokit } from '@octokit/rest'
+import init_commands from './init-commands'
 
 
 type GithubProviderOptions = {}
@@ -23,6 +24,12 @@ function GithubProvider(this: any, _options: any) {
 
   let octokit: Octokit
 
+  const initial_args: any = {
+    ZONE_BASE,
+    octokit: undefined
+  }
+
+  const commands = init_commands(initial_args)
 
   // NOTE: sys- zone prefix is reserved.
 
@@ -34,7 +41,11 @@ function GithubProvider(this: any, _options: any) {
     .message('role:entity,cmd:save,zone:provider,base:github,name:repo',
       save_repo)
 
+    .message('role:entity,cmd:load,zone:provider,base:github,name:issue', commands.issue.load_issue)
+    .message('role:entity,cmd:save,zone:provider,base:github,name:issue', commands.issue.save_issue)
 
+    .message('role:entity,cmd:load,zone:provider,base:github,name:team', commands.team.load_team)
+    .message('role:entity,cmd:save,zone:provider,base:github,name:team', commands.team.save_team)
 
   async function get_info(this: any, _msg: any) {
     return {
@@ -103,7 +114,8 @@ function GithubProvider(this: any, _options: any) {
       auth: out.value
     }
 
-    octokit = new Octokit(config)
+    octokit = initial_args.octokit = new Octokit(config)
+    Object.freeze(initial_args)
   })
 
 

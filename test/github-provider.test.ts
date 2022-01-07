@@ -16,6 +16,18 @@ if (Fs.existsSync(__dirname + '/local-config.js')) {
 
 describe('github-provider', () => {
 
+  let provider_options = {
+    provider: {
+      github: {
+        keys: {
+          api: {
+            value: CONFIG.key
+          }
+        }
+      }
+    }
+  }
+
   test('happy', async () => {
     const seneca = Seneca({ legacy: false })
       .test()
@@ -137,6 +149,5 @@ describe('github-provider', () => {
       expect(repo.description.endsWith('M')).toBeTruthy()
     }
   })
-
 })
 
